@@ -45,7 +45,7 @@ export default function Page() {
             <p className="text-xl md:text-2xl text-gray-300">
               Realizamos reparos em:
               <br />
-              MacBook, iMacs, iPhones, iPads, Videos Games , notebooks e Celulares Androids
+              MacBook, iMacs, iPhones, iPads, Videos Games , Notebooks e Celulares Androids
             </p>
           </div>
         </div>
