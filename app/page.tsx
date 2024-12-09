@@ -45,7 +45,8 @@ export default function Page() {
             <p className="text-xl md:text-2xl text-gray-300">
               Realizamos reparos em:
               <br />
-              MacBook, iMacs, iPhones, iPads, Videos Games , Notebooks e Celulares Androids
+              MacBook, iMacs, iPhones, iPads, Videos Games , Notebooks e
+              Celulares Androids
             </p>
           </div>
         </div>
@@ -320,7 +321,7 @@ export default function Page() {
 
       {/* WhatsApp Button */}
       <a
-        href="https://wa.me/your-number"
+        href="https://wa.me/+5521964463157"
         className="fixed bottom-6 right-6 bg-green-500 text-white rounded-full p-4 shadow-lg hover:bg-green-600 transition-colors z-50"
         target="_blank"
         rel="noopener noreferrer"
