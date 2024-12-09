@@ -14,7 +14,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Assistência técnica do Adriel",
+  title: "Assistência técnica do Madara",
   description: "Assistência técnica do Adriel boladao",
 };
 
