@@ -9,6 +9,7 @@ import {
   Smartphone,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import NegoBam from "./images/bam.png";
 import {
   Accordion,
   AccordionContent,
@@ -22,8 +23,8 @@ export default function Page() {
       {/* Previous sections remain unchanged - including them for completeness */}
       <header className="container px-4 py-4 flex items-center justify-between">
         <Image
-          src="/placeholder.svg"
-          alt="PLAY Consert"
+          src={NegoBam}
+          alt="Vou tacar"
           width={150}
           height={50}
           className="w-32"
@@ -55,8 +56,8 @@ export default function Page() {
         <div className="container px-4">
           <div className="max-w-3xl mx-auto rounded-2xl overflow-hidden bg-white p-4">
             <Image
-              src="/placeholder.svg"
-              alt="MacBook Internal Components"
+              src={NegoBam}
+              alt="Vou tacar"
               width={800}
               height={600}
               className="w-full rounded-xl"
