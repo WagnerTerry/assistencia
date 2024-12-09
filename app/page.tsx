@@ -40,7 +40,7 @@ export default function Page() {
         <div className="container relative z-20 px-4 py-20 md:py-32">
           <div className="max-w-3xl mx-auto text-center space-y-4">
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-              Assistência Técnica Especializada
+              Assistência Técnica Especializada Apple
             </h1>
             <p className="text-xl md:text-2xl text-gray-300">
               Realizamos reparos em:
