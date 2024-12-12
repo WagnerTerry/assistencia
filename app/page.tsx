@@ -1,6 +1,5 @@
 import Image from "next/image";
 import {
-  Menu,
   Cpu,
   WrenchIcon,
   HardDrive,
@@ -16,12 +15,13 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { NavMenu } from "./components/nav-menu";
 
 export default function Page() {
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Previous sections remain unchanged - including them for completeness */}
-      <header className="container px-4 py-4 flex items-center justify-between">
+      <header className="container px-4 py-4 flex items-center justify-between bg-black">
         <Image
           src={NegoBam}
           alt="Vou tacar"
@@ -29,9 +29,7 @@ export default function Page() {
           height={50}
           className="w-32"
         />
-        <Button variant="ghost" size="icon" className="text-white">
-          <Menu className="h-6 w-6" />
-        </Button>
+        <NavMenu />
       </header>
 
       {/* Hero Section */}
