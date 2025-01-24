@@ -3,14 +3,17 @@ import { FaFacebookF, FaWhatsapp, FaInstagram } from "react-icons/fa";
 const Header = () => {
   return (
     <div className="bg-black text-white">
-      <header className="bg-slate-500 flex justify-between items-center py-3 px-10 font-bold">
+      <header className="bg-slate-500 py-3 px-10 flex flex-col items-center md:items-start md:flex-row md:justify-between">
         <div>
-          <p>
+          <p className="text-sm md:text-base text-center md:text-left">
             Centro Médico Christian Barnard - Rua Leonor Calmon, 256 - loja 29
           </p>
-          <p>Funcionamento: Seg a Sex: 08:00 às 18:00 | Sáb: 09:00 às 13:00</p>
+          <p className="text-sm md:text-base text-center md:text-left">
+            Funcionamento: Seg a Sex: 08:00 às 18:00 | Sáb: 09:00 às 13:00
+          </p>
         </div>
-        <div className="flex gap-3">
+
+        <div className="flex gap-3 mt-3 md:mt-0 md:ml-4 justify-center md:justify-start">
           <a
             href="https://facebook.com"
             target="_blank"
