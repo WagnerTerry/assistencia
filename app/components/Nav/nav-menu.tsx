@@ -10,7 +10,7 @@ export function NavMenu() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="relative">
+    <div className="relative z-30">
       {/* Mobile Menu Button */}
       <Button
         variant="ghost"

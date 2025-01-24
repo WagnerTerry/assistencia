@@ -65,7 +65,7 @@ export default function Page() {
       </section>
 
       {/* iPhone Service Section */}
-      <section className="py-16 bg-black">
+      <section id="duvidas" className="py-16 bg-black">
         <div className="container px-4">
           <div className="max-w-3xl mx-auto rounded-2xl overflow-hidden bg-white p-4">
             <Image
@@ -96,7 +96,7 @@ export default function Page() {
       </section>
 
       {/* Our Services Section */}
-      <section className="py-16 bg-zinc-800">
+      <section id="sobre" className="py-16 bg-zinc-800">
         <div className="container px-4">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
             NOSSOS SERVIÇOS
@@ -193,7 +193,7 @@ export default function Page() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-black">
+      <section id="contato" className="py-16 bg-black">
         <div className="container px-4">
           <div className="max-w-3xl mx-auto space-y-8">
             <div className="text-center">
