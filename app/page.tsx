@@ -16,18 +16,20 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { NavMenu } from "./components/nav-menu";
+import Header from "./components/Header";
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className=" bg-black text-white">
+      <Header />
       {/* Previous sections remain unchanged - including them for completeness */}
-      <header className="container px-4 py-4 flex items-center justify-between bg-black">
+      <header className="px-4 py-4 flex font-bold text-lg items-center justify-center">
         <Image
           src={NegoBam}
           alt="Vou tacar"
           width={150}
           height={50}
-          className="w-32"
+          className="mr-10"
         />
         <NavMenu />
       </header>
