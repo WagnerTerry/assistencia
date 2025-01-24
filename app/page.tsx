@@ -15,24 +15,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { NavMenu } from "./components/nav-menu";
 import Header from "./components/Header";
+import { Nav } from "./components/Nav";
 
 export default function Page() {
   return (
     <div className=" bg-black text-white">
       <Header />
-      {/* Previous sections remain unchanged - including them for completeness */}
-      <header className="px-4 py-4 flex font-bold text-lg items-center justify-center">
-        <Image
-          src={NegoBam}
-          alt="Vou tacar"
-          width={150}
-          height={50}
-          className="mr-10"
-        />
-        <NavMenu />
-      </header>
+      <Nav />
 
       {/* Hero Section */}
       <section className="relative">
@@ -53,7 +43,7 @@ export default function Page() {
       </section>
 
       {/* Service Image Section */}
-      <section className="py-16 bg-zinc-900">
+      <section id="servicos" className="py-16 bg-zinc-900">
         <div className="container px-4">
           <div className="max-w-3xl mx-auto rounded-2xl overflow-hidden bg-white p-4">
             <Image

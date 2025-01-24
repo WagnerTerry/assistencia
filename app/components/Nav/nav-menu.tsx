@@ -24,31 +24,31 @@ export function NavMenu() {
       {/* Desktop Menu */}
       <nav className="hidden md:flex items-center gap-8">
         <Link
-          href="/"
+          href="#"
           className="text-white hover:text-gray-300 transition-colors"
         >
           Home
         </Link>
         <Link
-          href="/servicos"
+          href="#servicos"
           className="text-white hover:text-gray-300 transition-colors"
         >
           Serviços
         </Link>
         <Link
-          href="/duvidas"
+          href="#duvidas"
           className="text-white hover:text-gray-300 transition-colors"
         >
           Dúvidas
         </Link>
         <Link
-          href="/sobre"
+          href="#sobre"
           className="text-white hover:text-gray-300 transition-colors"
         >
           Sobre nós
         </Link>
         <Link
-          href="/contato"
+          href="#contato"
           className="text-white hover:text-gray-300 transition-colors"
         >
           Contato
@@ -63,35 +63,35 @@ export function NavMenu() {
         )}
       >
         <Link
-          href="/"
+          href="#"
           className="block px-4 py-2 text-white hover:bg-zinc-800 transition-colors"
           onClick={() => setIsOpen(false)}
         >
           Home
         </Link>
         <Link
-          href="/servicos"
+          href="#servicos"
           className="block px-4 py-2 text-white hover:bg-zinc-800 transition-colors"
           onClick={() => setIsOpen(false)}
         >
           Serviços
         </Link>
         <Link
-          href="/duvidas"
+          href="#duvidas"
           className="block px-4 py-2 text-white hover:bg-zinc-800 transition-colors"
           onClick={() => setIsOpen(false)}
         >
           Dúvidas
         </Link>
         <Link
-          href="/sobre"
+          href="#sobre"
           className="block px-4 py-2 text-white hover:bg-zinc-800 transition-colors"
           onClick={() => setIsOpen(false)}
         >
           Sobre nós
         </Link>
         <Link
-          href="/contato"
+          href="#contato"
           className="block px-4 py-2 text-white hover:bg-zinc-800 transition-colors"
           onClick={() => setIsOpen(false)}
         >
