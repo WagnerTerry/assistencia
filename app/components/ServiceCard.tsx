@@ -5,6 +5,7 @@ interface ServiceCardProps {
   description: string;
   imagePath: string | StaticImageData;
   buttonText: string;
+  whatsappMessage: string;
 }
 
 export function ServiceCard({
@@ -12,7 +13,10 @@ export function ServiceCard({
   description,
   imagePath,
   buttonText,
+  whatsappMessage,
 }: ServiceCardProps) {
+  const whatsappNumber = "+5521964463157"; // Número fixo do WhatsApp
+
   return (
     <div className="flex flex-wrap justify-center gap-6">
       <div className="bg-white rounded-3xl overflow-hidden shadow-lg flex flex-col">
@@ -24,9 +28,16 @@ export function ServiceCard({
             <h3 className="text-xl font-bold text-black mb-4">{title}</h3>
             <p className="text-gray-600 mb-8 text-sm">{description}</p>
           </div>
-          <button className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full transition-colors text-base lg:text-lg font-bold">
+          <a
+            href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+              whatsappMessage
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full transition-colors text-base lg:text-lg font-bold text-center"
+          >
             {buttonText}
-          </button>
+          </a>
         </div>
       </div>
     </div>
