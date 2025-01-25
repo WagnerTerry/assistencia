@@ -1,6 +1,6 @@
 import { FaFacebookF, FaWhatsapp, FaInstagram } from "react-icons/fa";
 
-const Header = () => {
+export function Header() {
   return (
     <div className="bg-black text-white">
       <header className="bg-slate-500 py-3 px-10 flex flex-col items-center md:items-start md:flex-row md:justify-between">
@@ -42,6 +42,4 @@ const Header = () => {
       </header>
     </div>
   );
-};
-
-export default Header;
+}
