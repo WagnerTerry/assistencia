@@ -11,10 +11,10 @@ export function TypeService() {
   return (
     <section id="servicos" className="py-16 bg-zinc-800">
       <div className="px-4">
-        <h2 className="text-2xl md:text-4xl font-bold text-center mb-16">
+        <h2 className="text-2xl md:text-4xl font-bold text-center mb-16 text-white">
           NOSSOS SERVIÇOS
         </h2>
-        <div className="max-w-3xl mx-auto space-y-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="bg-white rounded-2xl p-8 text-black">
             <div className="flex flex-col items-center text-center space-y-4">
               <div className="p-4 bg-gray-100 rounded-full">
@@ -28,7 +28,6 @@ export function TypeService() {
             </div>
           </div>
 
-          {/* Preventive Maintenance Card */}
           <div className="bg-white rounded-2xl p-8 text-black">
             <div className="flex flex-col items-center text-center space-y-4">
               <div className="p-4 bg-gray-100 rounded-full">
@@ -42,7 +41,6 @@ export function TypeService() {
             </div>
           </div>
 
-          {/* Memory and SSD Upgrade Card */}
           <div className="bg-white rounded-2xl p-8 text-black">
             <div className="flex flex-col items-center text-center space-y-4">
               <div className="p-4 bg-gray-100 rounded-full">
@@ -56,7 +54,6 @@ export function TypeService() {
             </div>
           </div>
 
-          {/* System Installation Card */}
           <div className="bg-white rounded-2xl p-8 text-black">
             <div className="flex flex-col items-center text-center space-y-4">
               <div className="p-4 bg-gray-100 rounded-full">
@@ -70,7 +67,6 @@ export function TypeService() {
             </div>
           </div>
 
-          {/* General Repair Card */}
           <div className="bg-white rounded-2xl p-8 text-black">
             <div className="flex flex-col items-center text-center space-y-4">
               <div className="p-4 bg-gray-100 rounded-full">
@@ -84,7 +80,6 @@ export function TypeService() {
             </div>
           </div>
 
-          {/* iPhone Repair Card */}
           <div className="bg-white rounded-2xl p-8 text-black">
             <div className="flex flex-col items-center text-center space-y-4">
               <div className="p-4 bg-gray-100 rounded-full">
