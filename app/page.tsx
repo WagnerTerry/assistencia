@@ -1,12 +1,4 @@
 import Image from "next/image";
-import {
-  Cpu,
-  WrenchIcon,
-  HardDrive,
-  Monitor,
-  Settings,
-  Smartphone,
-} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -17,6 +9,7 @@ import {
 import Header from "./components/Header";
 import { Nav } from "./components/Nav";
 import { DemandPresentation } from "./components/DemandPresentation";
+import { TypeService } from "./components/TypeService";
 
 export default function Page() {
   return (
@@ -24,106 +17,10 @@ export default function Page() {
       <Header />
       <Nav />
       <DemandPresentation />
-
-      {/* Our demands Section */}
-      <section id="sobre" className="py-16 bg-zinc-800">
-        <div className="container px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-            NOSSOS SERVIÇOS
-          </h2>
-          <div className="max-w-3xl mx-auto space-y-8">
-            {/* Previous service cards remain unchanged */}
-            {/* Logic Board Repair Card */}
-            <div className="bg-white rounded-2xl p-8 text-black">
-              <div className="flex flex-col items-center text-center space-y-4">
-                <div className="p-4 bg-gray-100 rounded-full">
-                  <Cpu className="w-12 h-12" />
-                </div>
-                <h3 className="text-2xl font-bold">Reparo de placa lógica</h3>
-                <p className="text-gray-600 text-lg">
-                  Somos especialistas em reparo e conserto de placa lógica que
-                  pode custar cerca de 50% do valor de uma nova placa.
-                </p>
-              </div>
-            </div>
-
-            {/* Preventive Maintenance Card */}
-            <div className="bg-white rounded-2xl p-8 text-black">
-              <div className="flex flex-col items-center text-center space-y-4">
-                <div className="p-4 bg-gray-100 rounded-full">
-                  <WrenchIcon className="w-12 h-12" />
-                </div>
-                <h3 className="text-2xl font-bold">Manutenção preventiva</h3>
-                <p className="text-gray-600 text-lg">
-                  A manutenção preventiva é essencial para garantir o bom
-                  funcionamento e evitar problemas futuros no seu Macbook ou
-                  iMac
-                </p>
-              </div>
-            </div>
-
-            {/* Memory and SSD Upgrade Card */}
-            <div className="bg-white rounded-2xl p-8 text-black">
-              <div className="flex flex-col items-center text-center space-y-4">
-                <div className="p-4 bg-gray-100 rounded-full">
-                  <HardDrive className="w-12 h-12" />
-                </div>
-                <h3 className="text-2xl font-bold">Upgrade memória e SSD</h3>
-                <p className="text-gray-600 text-lg">
-                  Melhore a performance do seu Macbook através de um upgrade de
-                  memória RAM ou com a troca de um SSD
-                </p>
-              </div>
-            </div>
-
-            {/* System Installation Card */}
-            <div className="bg-white rounded-2xl p-8 text-black">
-              <div className="flex flex-col items-center text-center space-y-4">
-                <div className="p-4 bg-gray-100 rounded-full">
-                  <Monitor className="w-12 h-12" />
-                </div>
-                <h3 className="text-2xl font-bold">Instalação de sistema</h3>
-                <p className="text-gray-600 text-lg">
-                  É importante atualizar o sistema do Mac para que seu
-                  computador Apple receba novos recursos e aprimoramentos de
-                  software.
-                </p>
-              </div>
-            </div>
-
-            {/* General Repair Card */}
-            <div className="bg-white rounded-2xl p-8 text-black">
-              <div className="flex flex-col items-center text-center space-y-4">
-                <div className="p-4 bg-gray-100 rounded-full">
-                  <Settings className="w-12 h-12" />
-                </div>
-                <h3 className="text-2xl font-bold">Reparo em geral</h3>
-                <p className="text-gray-600 text-lg">
-                  Realizamos todo tipo de reparo em MacBooks, Fazemos o conserto
-                  em todos os modelos incluindo os Macs considerados vintage.
-                </p>
-              </div>
-            </div>
-
-            {/* iPhone Repair Card */}
-            <div className="bg-white rounded-2xl p-8 text-black">
-              <div className="flex flex-col items-center text-center space-y-4">
-                <div className="p-4 bg-gray-100 rounded-full">
-                  <Smartphone className="w-12 h-12" />
-                </div>
-                <h3 className="text-2xl font-bold">Reparo em iPhones</h3>
-                <p className="text-gray-600 text-lg">
-                  Realizamos todo tipo de reparo avançado em iPhones, troca de
-                  tela, troca de bateria, ou qualquer outro tipo de reparo.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <TypeService />
 
       {/* FAQ Section */}
-      <section id="contato" className="py-16 bg-black">
+      <section id="duvidas" className="py-16 bg-black">
         <div className="container px-4">
           <div className="max-w-3xl mx-auto space-y-8">
             <div className="text-center">

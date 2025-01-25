@@ -1,6 +1,6 @@
 "use client";
 import { demands } from "@/app/constants/demands";
-import { ServiceCard } from "../ServiceCard";
+import { ServiceCard } from "./ServiceCard";
 import { motion } from "framer-motion";
 
 export function DemandPresentation() {
