@@ -18,9 +18,9 @@ export function ServiceCard({
   const whatsappNumber = "+5521964463157"; // Número fixo do WhatsApp
 
   return (
-    <div className="flex flex-wrap justify-center gap-6">
-      <div className="bg-white rounded-3xl overflow-hidden shadow-lg flex flex-col">
-        <div className="relative h-64 ">
+    <div className="h-full">
+      <div className="bg-white rounded-3xl overflow-hidden shadow-lg flex flex-col h-full">
+        <div className="relative h-64">
           <Image src={imagePath} alt={title} fill objectFit="cover" />
         </div>
         <div className="p-8 text-center flex-grow flex flex-col justify-between">

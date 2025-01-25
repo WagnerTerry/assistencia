@@ -8,7 +8,6 @@ import {
   Smartphone,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import NegoBam from "./images/bam.png";
 import {
   Accordion,
   AccordionContent,
@@ -25,59 +24,6 @@ export default function Page() {
       <Header />
       <Nav />
       <DemandPresentation />
-
-      {/* Service Image Section */}
-      <section id="servicos" className="py-16 bg-zinc-900">
-        <div className="container px-4">
-          <div className="max-w-3xl mx-auto rounded-2xl overflow-hidden bg-white p-4">
-            <Image
-              src={NegoBam}
-              alt="Vou tacar"
-              width={800}
-              height={600}
-              className="w-full rounded-xl"
-            />
-          </div>
-          <div className="max-w-3xl mx-auto text-center mt-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              ASSISTÊNCIA TÉCNICA DE
-              <br />
-              MACBOOKS E IMAC
-            </h2>
-          </div>
-        </div>
-      </section>
-
-      {/* iPhone Service Section */}
-      <section id="duvidas" className="py-16 bg-black">
-        <div className="container px-4">
-          <div className="max-w-3xl mx-auto rounded-2xl overflow-hidden bg-white p-4">
-            <Image
-              src="/placeholder.svg"
-              alt="iPhone Repair Components"
-              width={800}
-              height={600}
-              className="w-full rounded-xl"
-            />
-          </div>
-          <div className="max-w-3xl mx-auto text-center mt-8 space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold">
-              ASSISTÊNCIA TÉCNICA DE IPHONE
-            </h2>
-            <p className="text-gray-400 text-lg md:text-xl">
-              Seu iPhone molhou, caiu e precisa trocar a tela, reparar face ID
-              ou touch ID, troca a bateria, ou qualquer outro reparo temos a
-              melhor solução para seu iPhone.
-            </p>
-            <a
-              href="#contact"
-              className="inline-block bg-green-500 hover:bg-green-600 text-white font-medium px-8 py-3 rounded-full text-lg transition-colors"
-            >
-              Quero consertar meu iPhone
-            </a>
-          </div>
-        </div>
-      </section>
 
       {/* Our demands Section */}
       <section id="sobre" className="py-16 bg-zinc-800">
