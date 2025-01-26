@@ -32,7 +32,6 @@ const slideVariants = {
 
 export function Doubts() {
   return (
-    // Adicionando motion.section aqui
     <motion.section
       id="duvidas"
       className="py-16 bg-white flex justify-center"
@@ -40,10 +39,10 @@ export function Doubts() {
       animate="visible"
       variants={sectionVariants}
     >
-      <div className="px-4">
+      <div className="container px-4 max-w-7xl">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Imagem */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 lg:sticky lg:top-8">
             <Image
               src={Macs}
               alt="Apple Device Family"
@@ -54,8 +53,7 @@ export function Doubts() {
           </div>
 
           {/* Perguntas Frequentes */}
-          <div className="flex-grow">
-            {/* Título */}
+          <div className="flex-grow w-full max-w-2xl">
             <motion.h2
               initial="hidden"
               animate="visible"
@@ -68,7 +66,7 @@ export function Doubts() {
               Perguntas frequentes!
             </motion.h2>
 
-            <Accordion type="single" collapsible className="space-y-4">
+            <Accordion type="multiple" className="space-y-4">
               {/* Fade In/Out */}
               <AccordionItem value="repair-time" className="border-none">
                 <AccordionTrigger className="bg-zinc-700 rounded-lg px-6 py-4 text-gray-100 hover:no-underline [&[data-state=open]>div]:bg-zinc-600">
