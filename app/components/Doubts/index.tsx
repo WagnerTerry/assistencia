@@ -1,3 +1,4 @@
+"use client";
 import {
   Accordion,
   AccordionContent,
@@ -5,78 +6,160 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Image from "next/image";
+import { motion } from "framer-motion"; // Importando Framer Motion
+import Macs from "../../images/macs.png";
+
+// Variantes para a seção inteira
+const sectionVariants = {
+  hidden: { opacity: 0, y: 50 }, // Inicialmente invisível e deslocado para baixo
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }, // Aparece suavemente e volta à posição original
+};
+
+// Variantes para outros efeitos
+const fadeVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.4 } },
+};
+
+const slideVariants = {
+  hidden: { height: 0, opacity: 0 },
+  visible: {
+    height: "auto",
+    opacity: 1,
+    transition: { duration: 0.4 },
+  },
+};
 
 export function Doubts() {
   return (
-    <section id="duvidas" className="py-16 bg-black">
-      <div className="container px-4">
-        <div className="max-w-3xl mx-auto space-y-8">
-          <div className="text-center">
+    // Adicionando motion.section aqui
+    <motion.section
+      id="duvidas"
+      className="py-16 bg-white flex justify-center"
+      initial="hidden"
+      animate="visible"
+      variants={sectionVariants}
+    >
+      <div className="px-4">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+          {/* Imagem */}
+          <div className="flex-shrink-0">
             <Image
-              src="/placeholder.svg"
+              src={Macs}
               alt="Apple Device Family"
-              width={800}
-              height={300}
-              className="w-full mb-8"
+              width={500}
+              height={400}
+              className="w-full"
             />
-            <h2 className="text-4xl md:text-5xl font-bold mb-12">
-              Perguntas frequentes!
-            </h2>
           </div>
 
-          <Accordion type="single" collapsible className="space-y-4">
-            <AccordionItem value="repair-time" className="border-none">
-              <AccordionTrigger className="bg-zinc-700 rounded-lg px-6 py-4 text-white hover:no-underline [&[data-state=open]>div]:bg-zinc-600">
-                <div className="flex items-center text-left text-lg font-medium">
-                  Quanto tempo leva o reparo?
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="px-6 pt-2 text-gray-300">
-                O tempo de reparo varia de acordo com o serviço necessário.
-                Faremos uma avaliação detalhada e informaremos o prazo
-                específico para o seu caso.
-              </AccordionContent>
-            </AccordionItem>
+          {/* Perguntas Frequentes */}
+          <div className="flex-grow">
+            {/* Título */}
+            <motion.h2
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: { opacity: 0, y: -20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+              }}
+              className="text-3xl md:text-4xl font-bold mb-8 text-black"
+            >
+              Perguntas frequentes!
+            </motion.h2>
 
-            <AccordionItem value="warranty" className="border-none">
-              <AccordionTrigger className="bg-zinc-700 rounded-lg px-6 py-4 text-white hover:no-underline [&[data-state=open]>div]:bg-zinc-600">
-                <div className="flex items-center text-left text-lg font-medium">
-                  Quanto tempo tenho de garantia?
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="px-6 pt-2 text-gray-300">
-                Oferecemos garantia em todos os nossos serviços. O período
-                específico será informado de acordo com o tipo de reparo
-                realizado.
-              </AccordionContent>
-            </AccordionItem>
+            <Accordion type="single" collapsible className="space-y-4">
+              {/* Fade In/Out */}
+              <AccordionItem value="repair-time" className="border-none">
+                <AccordionTrigger className="bg-zinc-700 rounded-lg px-6 py-4 text-gray-100 hover:no-underline [&[data-state=open]>div]:bg-zinc-600">
+                  <div className="flex items-center text-left text-lg font-medium">
+                    Quanto tempo leva o reparo?
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent asChild>
+                  <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    variants={fadeVariants}
+                    className="px-6 pt-2 text-gray-700"
+                  >
+                    Em média os procedimentos duram 40 minutos, porém vai
+                    depender da demanda que a loja esteja no momento. Mas para
+                    garantir o tempo indicado, agende o seu dia de reparo e
+                    tenha a comodidade e tempo de reparo garantido. Você poderá
+                    agendar via WhatsApp.
+                  </motion.div>
+                </AccordionContent>
+              </AccordionItem>
 
-            <AccordionItem value="safety" className="border-none">
-              <AccordionTrigger className="bg-zinc-700 rounded-lg px-6 py-4 text-white hover:no-underline [&[data-state=open]>div]:bg-zinc-600">
-                <div className="flex items-center text-left text-lg font-medium">
-                  A Play Consert é segura?
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="px-6 pt-2 text-gray-300">
-                Sim, somos uma empresa especializada com anos de experiência no
-                mercado e profissionais altamente qualificados.
-              </AccordionContent>
-            </AccordionItem>
+              {/* Slide */}
+              <AccordionItem value="warranty" className="border-none">
+                <AccordionTrigger className="bg-zinc-700 rounded-lg px-6 py-4 text-gray-100 hover:no-underline [&[data-state=open]>div]:bg-zinc-600">
+                  <div className="flex items-center text-left text-lg font-medium">
+                    Quanto tempo tenho de garantia?
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent asChild>
+                  <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    variants={slideVariants}
+                    className="px-6 pt-2 text-gray-700"
+                  >
+                    Oferecemos garantia em todos os nossos serviços. O período
+                    específico será informado de acordo com o tipo de reparo
+                    realizado.
+                  </motion.div>
+                </AccordionContent>
+              </AccordionItem>
 
-            <AccordionItem value="pickup" className="border-none">
-              <AccordionTrigger className="bg-zinc-700 rounded-lg px-6 py-4 text-white hover:no-underline [&[data-state=open]>div]:bg-zinc-600">
-                <div className="flex items-center text-left text-lg font-medium">
-                  Vocês coletam e entrega?
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="px-6 pt-2 text-gray-300">
-                Sim, oferecemos serviço de coleta e entrega para sua comodidade.
-                Entre em contato para mais detalhes.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
+              {/* Fade In/Out */}
+              <AccordionItem value="safety" className="border-none">
+                <AccordionTrigger className="bg-zinc-700 rounded-lg px-6 py-4 text-gray-100 hover:no-underline [&[data-state=open]>div]:bg-zinc-600">
+                  <div className="flex items-center text-left text-lg font-medium">
+                    A Play Consert é segura?
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent asChild>
+                  <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    variants={fadeVariants}
+                    className="px-6 pt-2 text-gray-700"
+                  >
+                    Sim, somos uma empresa especializada com anos de experiência
+                    no mercado e profissionais altamente qualificados.
+                  </motion.div>
+                </AccordionContent>
+              </AccordionItem>
+
+              {/* Slide */}
+              <AccordionItem value="pickup" className="border-none">
+                <AccordionTrigger className="bg-zinc-700 rounded-lg px-6 py-4 text-gray-100 hover:no-underline [&[data-state=open]>div]:bg-zinc-600">
+                  <div className="flex items-center text-left text-lg font-medium">
+                    Vocês coletam e entrega?
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent asChild>
+                  <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    variants={slideVariants}
+                    className="px-6 pt-2 text-gray-700"
+                  >
+                    Sim, oferecemos serviço de coleta e entrega para sua
+                    comodidade. Entre em contato para mais detalhes.
+                  </motion.div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
