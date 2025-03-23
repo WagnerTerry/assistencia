@@ -4,6 +4,7 @@ import { DemandPresentation } from "./components/DemandPresentation";
 import { TypeService } from "./components/TypeService";
 import { Doubts } from "./components/Doubts";
 import { Testimonials } from "./components/Nav/Testimonials";
+import { Contact } from "./components/Contact";
 
 export default function Page() {
   return (
@@ -14,6 +15,7 @@ export default function Page() {
       <TypeService />
       <Doubts />
       <Testimonials />
+      <Contact />
       {/* Testimonials Section */}
 
       {/* WhatsApp Button */}
