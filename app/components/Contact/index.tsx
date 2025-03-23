@@ -1,6 +1,19 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import toast from "react-hot-toast";
+
+// Validation functions
+const validateEmail = (email: string) => {
+  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return regex.test(email);
+};
+
+const validatePhone = (phone: string) => {
+  const regex = /^(?:\(\d{2}\)\s?)?\s*\d\s*\d{4}-?\d{4}$/;
+  const cleanNumber = phone.replace(/\D/g, "");
+  return regex.test(phone) || cleanNumber.length === 11;
+};
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -11,9 +24,30 @@ export function Contact() {
   });
 
   const [loading, setLoading] = useState(false);
+  const [send, setSend] = useState(false);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+
+    if (send) {
+      toast.error(
+        "Você já enviou uma mensagem. Recarregue a página para enviar outra."
+      );
+      return;
+    }
+
+    if (!validateEmail(formData.email)) {
+      toast.error("Por favor, insira um email válido");
+      return;
+    }
+
+    if (!validatePhone(formData.telefone)) {
+      toast.error(
+        "Por favor, insira um telefone válido no formato (99) 9 9999-9999"
+      );
+      return;
+    }
+
     setLoading(true);
 
     try {
@@ -26,23 +60,44 @@ export function Contact() {
       });
 
       if (response.ok) {
-        alert("Mensagem enviada com sucesso!");
+        toast.success("Mensagem enviada com sucesso!");
         setFormData({ nome: "", email: "", telefone: "", mensagem: "" });
+        setSend(true);
       } else {
         throw new Error("Falha ao enviar mensagem");
       }
     } catch (error) {
       console.error("Erro ao enviar mensagem:", error);
-      alert("Erro ao enviar mensagem. Por favor, tente novamente.");
+      toast.error("Erro ao enviar mensagem. Por favor, tente novamente.");
     } finally {
       setLoading(false);
     }
   };
 
+  // Function to format phone while typing
+  const formatPhone = (value: string) => {
+    const cleanNumber = value.replace(/\D/g, "");
+    let formattedNumber = cleanNumber;
+
+    if (cleanNumber.length >= 11) {
+      formattedNumber = `(${cleanNumber.slice(0, 2)}) ${cleanNumber.slice(
+        2,
+        3
+      )} ${cleanNumber.slice(3, 7)}-${cleanNumber.slice(7, 11)}`;
+    }
+
+    return formattedNumber;
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formattedValue = formatPhone(e.target.value);
+    setFormData({ ...formData, telefone: formattedValue });
+  };
+
   return (
     <section id="contato" className="py-16 bg-zinc-200 text-black">
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl md:text-4xl font-bold text-center mb-16 ">
+        <h2 className="text-2xl md:text-4xl font-bold text-center mb-16">
           Fale Conosco
         </h2>
 
@@ -91,7 +146,6 @@ export function Contact() {
                 }
                 className="w-full px-4 py-2 rounded-md border border-gray-300"
                 placeholder="Seu melhor email"
-                required
               />
             </div>
 
@@ -106,12 +160,10 @@ export function Contact() {
                 type="tel"
                 id="telefone"
                 value={formData.telefone}
-                onChange={(e) =>
-                  setFormData({ ...formData, telefone: e.target.value })
-                }
+                onChange={handlePhoneChange}
                 className="w-full px-4 py-2 rounded-md border border-gray-300"
                 placeholder="(00) 0 0000-0000"
-                required
+                maxLength={16}
               />
             </div>
 
@@ -136,10 +188,10 @@ export function Contact() {
 
             <button
               type="submit"
-              disabled={loading}
+              disabled={loading || send}
               className="w-full bg-black text-white py-3 rounded-md hover:bg-gray-800 transition-colors disabled:bg-gray-500"
             >
-              {loading ? "Enviando..." : "Enviar"}
+              {loading ? "Enviando..." : send ? "Mensagem Enviada" : "Enviar"}
             </button>
           </form>
         </div>
