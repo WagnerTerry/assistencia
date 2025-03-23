@@ -1,12 +1,55 @@
+"use client";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
+const reviews = [
+  {
+    id: 1,
+    author: "Michele Lima",
+    authorType: "Local Guide",
+    additionalInfo: "20 comentários · 26 fotos",
+    date: "2 anos atrás",
+    rating: 5,
+    comment:
+      "Melhor equipe que existe! Rodei o RJ para consertar meu iPhone na época, e foi o único lugar que me deu uma solução. Depois disso, tudo coloco para consertar com eles e indico para todos meus amigos e familiares. Equipe séria e honesta! São muito atenciosos e excelentes profissionais!",
+    likes: "Gostei",
+  },
+  {
+    id: 2,
+    author: "Erich Rocha",
+    additionalInfo: "2 comentários",
+    date: "2 anos atrás",
+    rating: 5,
+    comment:
+      "Super recomendo!!!! Tinha um Macbook de 15 mil reais, me cobraram um absurdo para conserta-lo, fui até a loja e fui muito bem atendido pelos profissionais do local, resolveram o ...",
+    likes: "1",
+  },
+  {
+    id: 3,
+    author: "Andre Xavier",
+    additionalInfo: "2 comentários",
+    date: "2 anos atrás",
+    rating: 5,
+    comment:
+      "Muito bom !!! Ótimo atendimento e profissionais super qualificados , levei meu ps4 pra fazer orçamento e o preço foi tão bom comparado com outros lugares em que fiz orçamento que eu resolvi fazer o conserto , peguei o game no mesmo dia e agora ele esta funcionando perfeitamente . To jogando direto !!! Recomendo !!! Obrigado itech!!!",
+    likes: "1",
+  },
+];
 
 export const Testimonials = () => {
+  const GOOGLE_REVIEW_URL =
+    "https://www.google.com/search?client=safari&sca_esv=c4b2fb5cd062a005&hl=pt-br&sxsrf=AHTn8zqPlL98HoomPJ0J85p0EfxgML50_w:1737855617461&kgmid=/g/11q4df18sx&q=iTech+Solu%C3%A7%C3%B5es&shndl=30&source=sh/x/loc/act/m1/3&kgs=7748e13278510bc#lrd=0x9967c505472089:0x44f741f5178b04cc,3,,,,";
+
   return (
     <div>
       <section id="sobre" className="py-16 bg-zinc-100">
         <div className="container px-4">
-          <div className="max-w-3xl mx-auto text-center space-y-8">
+          <div className="max-w-6xl mx-auto text-center space-y-8">
             <h2 className="text-4xl md:text-5xl font-bold text-black">
               Depoimentos
             </h2>
@@ -14,18 +57,17 @@ export const Testimonials = () => {
               Veja o que nossos clientes dizem sobre nós
             </p>
 
-            <div className="bg-white p-8 rounded-xl shadow-lg">
+            {/* Logo e Avaliação Geral */}
+            <div className="bg-white p-8 rounded-xl shadow-lg mb-8">
               <div className="flex flex-col items-center space-y-4">
                 <Image
-                  src="/placeholder.svg"
-                  alt="Play Consert Logo"
+                  src="/logo.png"
+                  alt="iTech Soluções"
                   width={80}
                   height={80}
                   className="rounded-lg"
                 />
-                <h3 className="text-xl font-bold text-black">
-                  Play Consert - Assistência Especializada iPhone e Macbook
-                </h3>
+                <h3 className="text-xl font-bold text-black">iTech Soluções</h3>
                 <div className="flex items-center space-x-1">
                   {[...Array(5)].map((_, i) => (
                     <svg
@@ -38,12 +80,92 @@ export const Testimonials = () => {
                     </svg>
                   ))}
                 </div>
-                <p className="text-gray-600">99 avaliações no Google</p>
-                <Button className="bg-blue-500 hover:bg-blue-600 text-white">
+                <Button
+                  className="bg-blue-500 hover:bg-blue-600 text-white"
+                  onClick={() => window.open(GOOGLE_REVIEW_URL, "_blank")}
+                >
                   Escreva sua avaliação
                 </Button>
               </div>
             </div>
+
+            {/* Carrossel de Depoimentos */}
+            <Swiper
+              modules={[Navigation, Pagination]}
+              spaceBetween={30}
+              slidesPerView={1}
+              navigation
+              pagination={{ clickable: true }}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 3,
+                },
+              }}
+              className="testimonials-swiper"
+            >
+              {reviews.map((review) => (
+                <SwiperSlide key={review.id}>
+                  <div className="bg-white p-6 rounded-xl shadow-md h-full">
+                    <div className="flex items-center space-x-4 mb-4">
+                      <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center text-xl font-bold">
+                        {review.author[0]}
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between">
+                          <h4 className="font-semibold">{review.author}</h4>
+                          <button className="text-gray-500">•••</button>
+                        </div>
+                        <p className="text-sm text-gray-500">
+                          {review.authorType}
+                        </p>
+                        <p className="text-xs text-gray-400">
+                          {review.additionalInfo}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <div className="flex">
+                        {[...Array(review.rating)].map((_, i) => (
+                          <svg
+                            key={i}
+                            className="w-5 h-5 text-yellow-400"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+                      <span className="text-sm text-gray-500">
+                        {review.date}
+                      </span>
+                    </div>
+                    <p className="text-gray-600 mb-4">{review.comment}</p>
+                    <div className="flex items-center text-gray-500 text-sm">
+                      <button className="flex items-center space-x-1">
+                        <svg
+                          className="w-5 h-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
+                          />
+                        </svg>
+                        <span>{review.likes}</span>
+                      </button>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </div>
       </section>

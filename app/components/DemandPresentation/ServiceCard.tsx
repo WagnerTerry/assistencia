@@ -21,7 +21,12 @@ export function ServiceCard({
     <div className="h-full">
       <div className="bg-white rounded-3xl overflow-hidden shadow-lg flex flex-col h-full">
         <div className="relative h-64">
-          <Image src={imagePath} alt={title} fill objectFit="cover" />
+          <Image
+            src={imagePath}
+            alt={title}
+            fill
+            style={{ objectFit: "cover" }}
+          />
         </div>
         <div className="p-8 text-center flex-grow flex flex-col justify-between">
           <div>
