@@ -99,8 +99,8 @@ export const Testimonials = () => {
               className="testimonials-swiper"
             >
               {reviews.map((review) => (
-                <SwiperSlide key={review.id}>
-                  <div className="bg-white p-6 rounded-xl shadow-md h-full">
+                <SwiperSlide key={review.id} className="h-auto">
+                  <div className="bg-white p-6 rounded-xl shadow-md flex flex-col h-[370px]">
                     <div className="flex items-center space-x-4 mb-4">
                       <div className="w-12 h-12 bg-gray-400 rounded-full flex items-center justify-center text-xl font-bold">
                         {review.author[0]}
@@ -130,8 +130,12 @@ export const Testimonials = () => {
                         {review.date}
                       </span>
                     </div>
-                    <p className="text-gray-600 mb-4">{review.comment}</p>
-                    <div className="flex items-center text-gray-500 text-sm"></div>
+                    <div className="flex-1 overflow-hidden">
+                      <p className="text-gray-600 line-clamp-8">
+                        {review.comment}
+                      </p>
+                    </div>
+                    <div className="flex items-center text-gray-500 text-sm pt-2"></div>
                   </div>
                 </SwiperSlide>
               ))}
