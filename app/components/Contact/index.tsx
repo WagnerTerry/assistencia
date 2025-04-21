@@ -2,7 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import toast from "react-hot-toast";
-
+import { LeafletMap } from "../Map";
 // Validation functions
 const validateEmail = (email: string) => {
   const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -195,6 +195,7 @@ export function Contact() {
             </button>
           </form>
         </div>
+        <LeafletMap />
       </div>
     </section>
   );
