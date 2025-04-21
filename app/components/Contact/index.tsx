@@ -195,7 +195,12 @@ export function Contact() {
             </button>
           </form>
         </div>
-        <LeafletMap />
+        <div className="mt-12 w-full">
+          <h3 className="text-lg font-semibold text-center mb-6">
+            Nossa Localização
+          </h3>
+          <LeafletMap />
+        </div>
       </div>
     </section>
   );
