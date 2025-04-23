@@ -58,8 +58,11 @@ export function Contact() {
         },
         body: JSON.stringify(formData),
       });
+      console.log("response", response);
 
       if (response.ok) {
+        console.log("response ok", response);
+
         toast.success("Mensagem enviada com sucesso!");
         setFormData({ nome: "", email: "", telefone: "", mensagem: "" });
         setSend(true);
@@ -108,10 +111,10 @@ export function Contact() {
               atendê-lo(a) da melhor forma.
             </h3>
             <div className="space-y-2">
-              <p>(71) 9 9195-0873</p>
-              <p>contato@playconsert.com.br</p>
-              <p>Seg a Sex: 08:00 às 18:00</p>
-              <p>Sáb 09:00 às 13:00</p>
+              <p>Horário de atendimento:</p>
+              <p>seg - sex 09:00 ás 19:00</p>
+              <p>sáb 09:00 ás 18:00</p>
+              <p>Telefone: (21) 9 9953-2802</p>
             </div>
           </div>
 
